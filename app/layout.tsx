@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header'; 
+import Main from '@/components/Main'; // Main コンポーネントをインポート
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           
           {/* 常に上に固定されるヘッダー */}
           <Header />
+          <Main /> {/* ここで Main コンポーネントを呼び出す */}
           
           {/* ここに各ページの page.tsx の中身が自動的に流し込まれる */}
           <main className="flex-1 overflow-y-auto">
