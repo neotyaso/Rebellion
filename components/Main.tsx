@@ -1,13 +1,18 @@
 const mockCourses = [
-  { code: 'B30B01S2', name: '共通基盤ワークショップ２Ａ', teacher: '宮田 佳美', dayOfWeek: 0, period: 3, color: 'bg-orange-500/90' },
-  { code: 'B31Q07A2', name: 'Web入門', teacher: '牧 紀子', dayOfWeek: 0, period: 5, color: 'bg-indigo-500/90' },
-  { code: 'B31N01A1', name: '確率統計リテラシ１', teacher: '鈴木 誠', dayOfWeek: 1, period: 4, color: 'bg-stone-500/90 ' },
-  { code: 'B30F07A2', name: '政治行動', teacher: '渡邊 涼一', dayOfWeek: 2, period: 1, color: 'bg-amber-500/90 ' },
-  { code: 'B30H01F2', name: 'スポーツで健康を科学する', teacher: '中務 真衣', dayOfWeek: 2, period: 2, color: 'bg-teal-500/90 ' },
-  { code: 'B31Q06A2', name: 'デザイン思考', teacher: '中茂 睦裕', dayOfWeek: 2, period: 3, color: 'bg-cyan-600/90 ' },
-  { code: 'B31R03B2', name: '金融情報処理１', teacher: '松山 智彦', dayOfWeek: 2, period: 4, color: 'bg-green-600/90 ' },
-  { code: 'B31M03A2', name: '情報学課題解決実習２Ａ', teacher: 'シャー', dayOfWeek: 3, period: 1, color: 'bg-rose-500/90' },
-  { code: 'B31L08D2', name: 'オブジェクト指向プログラミング実習', teacher: '本多 博彦', dayOfWeek: 4, period: 1, color: 'bg-purple-500/90' },
+  { code: 'B30B01S2', name: '共通基盤ワークショップ２Ａ', teacher: '宮田 佳美', dayOfWeek: 0, period: 3, room: '4221', color: 'bg-orange-500/90' },
+  { code: 'B30B01S2', name: '共通基盤ワークショップ２Ａ', teacher: '宮田 佳美', dayOfWeek: 0, period: 4, room: '4221', color: 'bg-orange-500/90' },
+  { code: 'B31Q07A2', name: 'Web入門', teacher: '牧 紀子', dayOfWeek: 0, period: 5, room: 'online', color: 'bg-indigo-500/90' },
+  { code: 'B31N01A1', name: '確率統計リテラシ１', teacher: '鈴木 誠', dayOfWeek: 1, period: 4, room: 'online', color: 'bg-stone-500/90 ' },
+  { code: 'B30F07A2', name: '政治行動', teacher: '渡邊 涼一', dayOfWeek: 2, period: 1, room: '4307', color: 'bg-amber-500/90 ' },
+  { code: 'B30H01F2', name: 'スポーツで健康を科学する', teacher: '中務 真衣', dayOfWeek: 2,  period: 2, room:'体育館', color: 'bg-teal-500/90 ' },
+  { code: 'B31Q06A2', name: 'デザイン思考', teacher: '中茂 睦裕', dayOfWeek: 2, period: 3, room:'1304', color: 'bg-cyan-600/90 ' },
+  { code: 'B31R03B2', name: '金融情報処理１', teacher: '松山 智彦', dayOfWeek: 2, period: 4, room:'online', color: 'bg-green-600/90 ' },
+  { code: 'B31M03A2', name: '情報学課題解決実習２Ａ', teacher: '李', dayOfWeek: 3, period: 1, room:'?', color: 'bg-rose-500/90' },
+  { code: 'B31M03A2', name: '情報学課題解決実習２Ａ', teacher: '李', dayOfWeek: 3, period: 2, room:'?', color: 'bg-rose-500/90' },
+  { code: 'B31M03A2', name: '情報学課題解決実習２Ａ', teacher: '李', dayOfWeek: 3, period: 3, room:'?', color: 'bg-rose-500/90' },
+  { code: 'B31M03A2', name: '情報学課題解決実習２Ａ', teacher: '李', dayOfWeek: 3, period: 4, room:'?', color: 'bg-rose-500/90' },
+  { code: 'B31L08D2', name: 'オブジェクト指向プログラミング実習', teacher: '本多 博彦', dayOfWeek: 4, period: 1, room:'H304a', color: 'bg-purple-500/90' },
+  { code: 'B31L08D2', name: 'オブジェクト指向プログラミング実習', teacher: '本多 博彦', dayOfWeek: 4, period: 2, room:'H304a', color: 'bg-purple-500/90' },
 ];
 
 export default function Main() {
@@ -16,7 +21,7 @@ export default function Main() {
 
   return (
     // レイアウトコードをすべてそのまま維持
-    <div className="pb-50 mx-2 mt-2 h-full flex flex-col bg-gray-50/30">
+    <div className="pb-2 mx-2 mt-2 h-full flex flex-col bg-gray-50/30">
       
       {/* 1. 曜日を表示するヘッダー行 */}
       <div className="grid grid-cols-[45px_1fr_1fr_1fr_1fr_1fr] gap-0.5 mb-0.5 text-center">
@@ -46,9 +51,9 @@ export default function Main() {
               <div className="text-xs text-gray-700 scale-80 leading-none mt-0.5 text-center">
                 {period === 1 && (<div className="text-xs">09:00<br/>|<br/>10:30</div>)}
                 {period === 2 && (<div className="text-xs">10:40<br/>|<br/>12:10</div>)}
-                {period === 3 && (<div className="text-xs">13:10<br/>|<br/>14:40</div>)}
-                {period === 4 && (<div className="text-xs">14:50<br/>|<br/>16:20</div>)}
-                {period === 5 && (<div className="text-xs">16:30<br/>|<br/>18:00</div>)}
+                {period === 3 && (<div className="text-xs">13:00<br/>|<br/>14:30</div>)}
+                {period === 4 && (<div className="text-xs">14:40<br/>|<br/>16:10</div>)}
+                {period === 5 && (<div className="text-xs">16:20<br/>|<br/>17:50</div>)}
               </div>
             </div>
 
@@ -69,9 +74,8 @@ export default function Main() {
                     <span className="text-xs font-medium leading-tight text-black tracking-tighter">
                       {course.name}
                     </span>
-                    {/* 担当教員（苗字だけにしてスッキリ） */}
                     <span className="text-xs opacity-90 text-black mt-0.5 scale-90 leading-none font-medium">
-                      {course.teacher.split(' ')[0]}
+                      {course.room.split(' ')[0]}
                     </span>
                   </div>
                 );

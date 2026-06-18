@@ -2,15 +2,16 @@
 
 import { Menu, ChevronDown, Bell } from 'lucide-react';
 
-export default function Header() {
-  // お知らせの赤い点を表示するかどうかのフラグ
-  const hasNotification: boolean = true;
+type RegistrationStatus = 'none' | 'register' | 'modify';
 
+const registrationStatus: RegistrationStatus = 'register';
+const hasNotification: boolean = true;
+
+export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white">
       {/* メインヘッダーエリア */}
       <div className="px-4 py-3 flex items-center justify-between border-b border-gray-500">
-        
         {/* 左：お知らせ（通知）アイコン */}
         <div className="relative p-2 text-gray-700">
           <Bell className="w-7 h-7 text-gray-700" /> 
@@ -34,6 +35,25 @@ export default function Header() {
           <Menu className="w-7 h-7" />
         </div>
 
+      </div>
+      <div className="w-full  px-4 py-1 flex justify-center items-center">
+        {registrationStatus === 'modify' && (
+          <div className="text-[10px] font-bold bg-amber-50 text-amber-800 px-3 py-0.5 rounded-full border border-amber-100 flex items-center gap-1 animate-pulse">
+            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+            履修修正期間中（〜4/15）
+          </div>
+        )}
+        {registrationStatus === 'register' && (
+          <div className="text-[10px] font-bold bg-emerald-50 text-emerald-800 px-3 py-0.5 rounded-full border border-emerald-100 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+            履修登録期間中
+          </div>
+        )}
+        {registrationStatus === 'none' && (
+          <div className="text-[10px] font-medium bg-gray-50 text-gray-500 px-3 py-0.5 rounded-full border border-gray-100">
+            履修確定（期間外）
+          </div>
+        )}
       </div>
     </header>
   );
