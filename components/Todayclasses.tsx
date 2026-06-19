@@ -8,6 +8,7 @@ interface Course {
   name: string;
   room: string;
   absent: number;
+  late: number;
   max: number;
 }
 
@@ -18,19 +19,19 @@ interface ScheduleData {
 // 2. テスト用のダミーデータ（実際の開発ではAPIやPropsから取得する想定）
 const dummySchedule: ScheduleData = {
   1: [ // 月曜日
-    { period: "2限", name: "情報ネットワーク", room: "302教室", absent: 0, max: 3 },
-    { period: "4限", name: "プログラミング応用", room: "PC演習室2", absent: 1, max: 3 }
+    { period: "2限", name: "情報ネットワーク", room: "302教室", absent: 0, late: 2, max: 3 },
+    { period: "4限", name: "プログラミング応用", room: "PC演習室2", absent: 1, late: 0, max: 3 }
   ],
   2: [], // 火曜日
   3: [ // 水曜日
-    { period: "1限", name: "データベース基礎", room: "201教室", absent: 2, max: 3 }
+    { period: "1限", name: "データベース基礎", room: "201教室", absent: 2, late: 2, max: 3 }
   ],
   4: [ // 木曜日（今日）
-    { period: "2限", name: "情報セキュリティ", room: "405教室", absent: 0, max: 3 },
-    { period: "4限", name: "課題解決実習", room: "地域連携ラボ", absent: 1, max: 3 }
+    { period: "2限", name: "情報セキュリティ", room: "405教室", absent: 0, late: 2, max: 3 },
+    { period: "4限", name: "課題解決実習", room: "地域連携ラボ", absent: 1, late: 2, max: 3 }
   ],
   5: [ // 金曜日
-    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, max: 3 }
+    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 }
   ],
   0: [], // 日曜日
   6: []  // 土曜日
@@ -58,12 +59,10 @@ export default function TodayClasses() {
   const todaysClasses = dummySchedule[dayOfWeek] || [];
 
   return (
-    <section className="bg-white p-5 px-1 rounded-xl shadow-md border border-gray-100 max-w-md mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center space-x-2">
-          <h2 className="text-lg font-bold text-gray-900">本日の授業</h2>
-        </div>
-        <span className="bg-blue-50 text-xs font-bold px-3 py-1 rounded-base ">
+    <section className="bg-white max-w-md mx-auto mt-1">
+      <div className="flex items-center justify-between mb-2">
+          <h2 className="font-bold text-gray-800 text-xl ">本日の授業</h2>
+        <span className="bg-gray-100 text-gray-600 rounded-full font-normal text-xs  py-1 px-2  ">
           {weekDaysJa[dayOfWeek]}曜日
         </span>
       </div>
