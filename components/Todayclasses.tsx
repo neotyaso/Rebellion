@@ -31,7 +31,10 @@ const dummySchedule: ScheduleData = {
     { period: "4限", name: "課題解決実習", room: "地域連携ラボ", absent: 1, late: 2, max: 3 }
   ],
   5: [ // 金曜日
-    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 }
+    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 },
+    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 },
+    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 },
+    { period: "3限", name: "キャリアデザイン", room: "大講義室", absent: 0, late: 2, max: 3 },
   ],
   0: [], // 日曜日
   6: []  // 土曜日

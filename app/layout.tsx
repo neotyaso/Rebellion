@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header'; 
 import Main from '@/components/Main'; // Main コンポーネントをインポート
 import TodayClasses from '@/components/Todayclasses';
+import Grades from '@/components/Grades';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <Header />
           <Main /> {/* ここで Main コンポーネントを呼び出す */}
           <TodayClasses />
+          <Grades />
           
           {/* ここに各ページの page.tsx の中身が自動的に流し込まれる */}
           <main className="flex-1 overflow-y-auto">
