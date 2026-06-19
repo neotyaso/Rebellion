@@ -59,7 +59,7 @@ export default function TodayClasses() {
   const todaysClasses = dummySchedule[dayOfWeek] || [];
 
   return (
-    <section className="bg-white mt-2">
+    <section className="bg-white mt-2 mx-2">
       <div className="flex items-center  mb-2">
           <h2 className="font-bold text-gray-800 text-xl ">本日の授業</h2>
         <span className="bg-gray-100 text-gray-600 rounded-full font-normal text-xs  py-1 px-2  ">
