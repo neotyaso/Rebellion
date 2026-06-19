@@ -59,8 +59,8 @@ export default function TodayClasses() {
   const todaysClasses = dummySchedule[dayOfWeek] || [];
 
   return (
-    <section className="bg-white max-w-md mx-auto mt-1">
-      <div className="flex items-center justify-between mb-2">
+    <section className="bg-white mt-2">
+      <div className="flex items-center  mb-2">
           <h2 className="font-bold text-gray-800 text-xl ">本日の授業</h2>
         <span className="bg-gray-100 text-gray-600 rounded-full font-normal text-xs  py-1 px-2  ">
           {weekDaysJa[dayOfWeek]}曜日
@@ -87,13 +87,13 @@ export default function TodayClasses() {
                     <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded font-mono">
                       {course.period}
                     </span>
+                  <h3 className="text-sm font-semibold text-gray-800 mt-1">{course.name}</h3>
                     <span className="text-xs text-gray-400">{course.room}</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-gray-800 mt-1">{course.name}</h3>
                 </div>
-                
-                <div className="text-right">
-                  <span className="text-xs text-gray-400 block">欠席回数</span>
+                {/* 欠席回数 */}
+                <div className="">
+                  <span className="text-xs text-gray-400 block">欠席</span>
                   <span className={`text-sm ${isDanger ? 'text-red-600 font-bold' : 'text-gray-600'}`}>
                     {course.absent} <span className="text-xs text-gray-400">/ {course.max}回</span>
                   </span>
@@ -102,6 +102,20 @@ export default function TodayClasses() {
                       あと1回でアウト
                     </span>
                   )}
+                </div>
+                {/* 遅刻回数 */}
+                <div className="">
+                  <span className="text-xs text-gray-400 block">遅刻</span>
+                  <span className={`text-sm ${isDanger ? 'text-red-600 font-bold' : 'text-gray-600'}`}>
+                    {course.absent} <span className="text-xs text-gray-400">/ {course.max}回</span>
+                  </span>
+                </div>
+                {/* 出席回数 */}
+                <div className="">
+                  <span className="text-xs text-gray-400 block">出席</span>
+                  <span className={`text-sm ${isDanger ? 'text-red-600 font-bold' : 'text-gray-600'}`}>
+                    {course.absent} <span className="text-xs text-gray-400">/ {course.max}回</span>
+                  </span>
                 </div>
               </div>
             );
